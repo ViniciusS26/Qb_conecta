@@ -1,0 +1,51 @@
+
+services:
+  
+  database:
+    container_name: database
+    image: postgres
+    environment:
+      POSTGRES_DB: db_associates
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: vini123
+      POSTGRES_HOST_AUTH_METHOD: trust
+      PGDATA: /data/postgres
+    volumes:
+      - postgres_data:/data/postgres
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+
+  backend:
+    build: ./Backend
+    ports:
+      - "8000:80"
+    volumes:
+      - ./Backend:/code
+    environment:
+      - PYTHONUNBUFFERED=1
+      - DATABASE_URL=postgresql://postgres:vini123@database:5432/db_associates
+    depends_on:
+      - database
+
+  frontend:
+    build:
+      context: ./Frontend
+      target: build
+    ports:
+    - "8080:8080"
+    volumes:
+      - ./Frontend:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - VITE_API_URL=http://localhost:8000
+      - VITE_DEFAULT_LINK_PREFIX=/algum-prefixo
+    depends_on:
+      - backend
+volumes:
+  postgres_data:
+  
+
+
