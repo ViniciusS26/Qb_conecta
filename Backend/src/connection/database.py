@@ -16,7 +16,7 @@ from sqlalchemy.orm import sessionmaker
 # -------------------------------------------------------------------
 SQLALCHEMY_DATABASE_URL = os.getenv(
     "DATABASE_URL",
-    "postgresql://postgres:vini123@database:5432/db_associates" # Valor padrão para DEV local
+    "postgresql://postgres:vini123@database:5433/db_associates" # Valor padrão para DEV local
 )
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
