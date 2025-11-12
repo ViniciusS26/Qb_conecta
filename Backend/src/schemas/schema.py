@@ -69,7 +69,7 @@ class UserRequest(BaseModel):
     
     @field_validator("data_nascimento")
     def validete_data_nascimento(cls, data_nascimento):
-        data_nascimento = datetime.strptime(data_nascimento, "%Y-%m-%d").date()
+        data_nascimento = date.strptime(data_nascimento, "%Y-%m-%d").date()
        #usuario deve ser maior de 16 anos
         if data_nascimento.year > 2005:
             raise ValueError("Usuário deve ser maior de 16 anos")
@@ -79,7 +79,7 @@ class UserRequest(BaseModel):
     @field_validator("dtassociacao")
     def validete_dtassociacao(cls, dtassociacao):
         #pegar data atual do sistema
-        dtassociacao = datetime.now().date()
+        dtassociacao = date.today()
         return dtassociacao
 
     model_config = ConfigDict(from_attributes=True)

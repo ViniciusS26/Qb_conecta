@@ -11,7 +11,7 @@ Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
 origins = [
-    "http://localhost:8080", # ambiente de desenvolvimento local
+    "http://localhost:8000", # ambiente de desenvolvimento local
     "https://front-end-associacao-production.up.railway.app" # <--- A URL COMPLETA  frontend no Render
 ]
 app.add_middleware(
