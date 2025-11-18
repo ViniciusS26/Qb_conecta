@@ -13,7 +13,7 @@ services:
     volumes:
       - postgres_data:/data/postgres
     ports:
-      - "5433:5433"
+      - "5432:5432"
     restart: unless-stopped
 
 
@@ -25,7 +25,7 @@ services:
       - ./Backend:/code
     environment:
       - PYTHONUNBUFFERED=1
-      - DATABASE_URL=postgresql://postgres:vini123@database:5433/db_associates
+      - DATABASE_URL=postgresql://postgres:vini123@database:5432/db_associates
     depends_on:
       - database
 

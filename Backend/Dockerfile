@@ -16,5 +16,5 @@ ENV PYTHONPATH=/code/src
 COPY ./src  /code/src
 
 # 
-CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "80"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 #CMD ["fastapi", "dev", "src/main.py", "--host", "0.0.0.0", "--port", "8000"]
