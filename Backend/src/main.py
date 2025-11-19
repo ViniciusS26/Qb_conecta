@@ -1,6 +1,6 @@
 import uvicorn
 from fastapi import FastAPI
-from .routers import router_login, router_user_associate, router_projetos, router_despesas, router_receitas, router_mensalidade
+from routers import router_login, router_user_associate, router_projetos, router_despesas, router_receitas, router_mensalidade
 from connection.database import Base, engine
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -11,8 +11,8 @@ Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
 origins = [
-    "http://localhost:8000", # ambiente de desenvolvimento local
-    "https://front-end-associacao-production.up.railway.app" # <--- A URL COMPLETA  frontend no Render
+    #"http://frontend:8000", # ambiente de desenvolvimento local
+    "http://54.207.3.49", # IP do servidor EC2
 ]
 app.add_middleware(
     CORSMiddleware,

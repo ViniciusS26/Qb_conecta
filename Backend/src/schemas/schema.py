@@ -35,7 +35,7 @@ class UserRequest(BaseModel):
     name: str
     email: str
     cpf: str
-    data_nascimento: str
+    data_nascimento: date
     senha: str
     quantidade: int
     cargo: str
@@ -69,7 +69,6 @@ class UserRequest(BaseModel):
     
     @field_validator("data_nascimento")
     def validete_data_nascimento(cls, data_nascimento):
-        data_nascimento = date.strptime(data_nascimento, "%Y-%m-%d").date()
        #usuario deve ser maior de 16 anos
         if data_nascimento.year > 2005:
             raise ValueError("Usuário deve ser maior de 16 anos")
