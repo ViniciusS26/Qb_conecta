@@ -19,8 +19,6 @@ services:
 
   backend:
     build: ./Backend
-    ports:
-      - "8000:8000"
     volumes:
       - ./Backend:/code
     environment:
