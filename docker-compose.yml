@@ -41,7 +41,7 @@ services:
   tunnel:
     image: cloudflare/cloudflared:latest
     restart: unless-stopped
-    command: docker run cloudflare/cloudflared:latest tunnel --no-autoupdate run --token eyJhIjoiZTUyOTM2YzRhMGY2MTA3NGUyNjZhZmExYmQyOWE1MDYiLCJ0IjoiMDg2NWM4NTYtMmViOS00MmZkLTg0ZTYtMWYzZWEwMmJlYTAxIiwicyI6Ik4ySmxOREF6TUdZdFlqTXhaQzAwTTJOaExUZzBNbUl0Tm1ZeU5XVTJZemszTUdVMiJ9
+    command: tunnel --no-autoupdate run --token eyJhIjoiZTUyOTM2YzRhMGY2MTA3NGUyNjZhZmExYmQyOWE1MDYiLCJ0IjoiMDg2NWM4NTYtMmViOS00MmZkLTg0ZTYtMWYzZWEwMmJlYTAxIiwicyI6Ik4ySmxOREF6TUdZdFlqTXhaQzAwTTJOaExUZzBNbUl0Tm1ZeU5XVTJZemszTUdVMiJ9
     
   
 

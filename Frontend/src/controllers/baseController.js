@@ -9,7 +9,7 @@ export class BaseController {
     this.UserStore = user_store;
     
     // Define o padrão inicial
-    let baseUrl = import.meta.env.VITE_API_URL || "http://localhost:8000";
+    let baseUrl = import.meta.env.VITE_API_URL || "https://api.viniciuss.com.br";
     
     // Força HTTPS se não for localhost (geralmente localhost não usa HTTPS em dev)
     if (!baseUrl.includes('localhost') && baseUrl.startsWith('http://')) {
