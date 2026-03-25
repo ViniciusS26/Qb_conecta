@@ -30,7 +30,7 @@ services:
       - database
   
   frontend:
-    build: ./frontend
+    build: .Frontend
     volumes:
       - ./Frontend:/code
     ports:
