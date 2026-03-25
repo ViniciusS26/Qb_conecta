@@ -23,6 +23,6 @@ ENV VITE_DEFAULT_LINK_PREFIX=$VITE_DEFAULT_LINK_PREFIX
 
 
 # Expondo a porta 80
-EXPOSE 8080
+EXPOSE 5050
 
-CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "5050"]
