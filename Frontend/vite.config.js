@@ -6,7 +6,7 @@ import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 import { defineConfig } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
 
-const renderAppHostname = process.env.VITE_RENDER_APP_HOSTNAME || 'sistema-da-associacao-l5ow.onrender.com';
+const renderAppHostname = process.env.VITE_RENDER_APP_HOSTNAME || 'http://localhost:8000/';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -42,14 +42,14 @@ export default defineConfig({
     // **AQUI ESTÁ A MUDANÇA PRINCIPAL:**
     // Adicione o hostname da sua aplicação de produção à lista de allowedHosts.
     allowedHosts: [
-      'front-end-associacao-production.up.railway.app',
+      'http://localhost:8000',
       // Se você tiver outros domínios ou subdomínios, adicione-os aqui também.
       // Por exemplo, se você estiver usando localhost para desenvolvimento:
       'localhost',
       '127.0.0.1'
     ],
     hmr: {
-      host: 'front-end-associacao-production.up.railway.app', // Especifique o host exato para HMR
+      host: '', // Especifique o host exato para HMR
       protocol: 'wss' // Use wss para HTTPS, ws para HTTP
     },
   },
