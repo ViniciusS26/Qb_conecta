@@ -42,12 +42,10 @@ export default defineConfig({
     // **AQUI ESTÁ A MUDANÇA PRINCIPAL:**
     // Adicione o hostname da sua aplicação de produção à lista de allowedHosts.
     allowedHosts: [
-      'http://localhost:8000',
-      'https://sistema.viniciuss.com.br',
+      //'http://localhost:8000',
+      'sistema.viniciuss.com.br',
       // Se você tiver outros domínios ou subdomínios, adicione-os aqui também.
       // Por exemplo, se você estiver usando localhost para desenvolvimento:
-      'localhost',
-      '127.0.0.1'
     ],
     hmr: {
       host: '', // Especifique o host exato para HMR

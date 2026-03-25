@@ -12,7 +12,8 @@ app = FastAPI()
 
 origins = [
     #"http://localhost:5050", # ambiente de desenvolvimento local
-    "http://192.168.18.29:5050" 
+    "http://192.168.18.29:5050",
+    "https://sistema.viniciuss.com.br" 
 ]
 app.add_middleware(
     CORSMiddleware,
