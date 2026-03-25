@@ -55,5 +55,8 @@ export default defineConfig({
   build: {
     outDir: 'dist', // Verifique se isso corresponde ao "Publish Directory" no Render
     emptyOutDir: true
-  }
+  },
+  watch: {
+    usePolling: true,
+  },
 })
