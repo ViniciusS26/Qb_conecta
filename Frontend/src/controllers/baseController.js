@@ -5,34 +5,29 @@ export class BaseController {
   static refreshingTokens = false;
   static refreshTokensPromise = null;
 
-  constructor(userStore) {
-    this.UserStore = userStore;
+  constructor(user_store) {
+    this.UserStore = user_store;
     
-    // Garantir que sempre use HTTPS
-    let baseUrl = "https://sistema-da-associacao.onrender.com";
+    // Define o padrão inicial
+    let baseUrl = import.meta.env.VITE_API_URL || "http://localhost:8000";
     
-    // Se houver uma variável de ambiente, use ela mas force HTTPS
-    if (import.meta.env.VITE_API_URL) {
-      baseUrl = import.meta.env.VITE_API_URL;
-      // Força HTTPS se a URL estiver usando HTTP
-      if (baseUrl.startsWith('http://')) {
-        baseUrl = baseUrl.replace('http://', 'https://');
-        console.warn('Forçando HTTPS para a API URL:', baseUrl);
-      }
+    // Força HTTPS se não for localhost (geralmente localhost não usa HTTPS em dev)
+    if (!baseUrl.includes('localhost') && baseUrl.startsWith('http://')) {
+      baseUrl = baseUrl.replace('http://', 'https://');
+      console.warn('Forçando HTTPS para a API URL:', baseUrl);
     }
     
-    this.url = baseUrl;
-
+    // Remove barra no final se existir para evitar // na URL final
+    this.url = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
   }
 
   urlFull(uri) {
-    const fullUrl = `${this.url}${uri}`;
+    // Garante que a uri comece com /
+    const path = uri.startsWith('/') ? uri : `/${uri}`;
+    const fullUrl = `${this.url}${path}`;
     
-    // Verificação extra: se a URL completa ainda estiver usando HTTP, force HTTPS
-    if (fullUrl.startsWith('http://')) {
-      const httpsUrl = fullUrl.replace('http://', 'https://');
-      console.warn('Forçando HTTPS para a URL completa:', httpsUrl);
-      return httpsUrl;
+    if (!fullUrl.includes('localhost') && fullUrl.startsWith('http://')) {
+      return fullUrl.replace('http://', 'https://');
     }
     
     return fullUrl;
