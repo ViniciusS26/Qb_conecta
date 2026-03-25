@@ -115,26 +115,26 @@
   import statusCode from '@/helpers/statusCode';
   import LogScrImage from '@/assets/LogScrImage.jpeg';
   import Logo1 from '@/assets/Logo1.png';
-
+  
   const userStore = useUserStore();
-	const authService = new AuthService();
+  const authService = new AuthService();
 
   export default {
     data() {
       return {
-				visible: false,
-        loading: false,
-        loginMailSent: false,
-        username: "",
-		password: "",
-        timer: 0,
-				alert: false,
-				valid: false,
-				ruleEmail,
-				rulePassword,
-				ruleRequired,
-				LogScrImage,
-				Logo1,
+			visible: false,
+			loading: false,
+			loginMailSent: false,
+			username: "",
+			password: "",
+			timer: 0,
+			alert: false,
+			valid: false,
+			ruleEmail,
+			rulePassword,
+			ruleRequired,
+			LogScrImage,
+			Logo1,
       }
     },
 
