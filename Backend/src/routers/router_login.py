@@ -27,18 +27,7 @@ async def get_user(form_data: Annotated[OAuth2PasswordRequestForm, Depends()], s
             detail="Usuário não encontrado",
         )
     
-    return {
-        "id": user.id,
-        "name": user.name,
-        "email": user.email,
-        "quantidade": user.quantidade,
-        "senha": user.senha,
-        "dtassociacao": user.dtassociacao,
-        "cpf": user.cpf,
-        "data_nascimento": user.data_nascimento,
-        "cargo": user.cargo,
-        
-    }
+    return user
     
 @router.post("/token", response_model=UserToken)
 async def login_for_access_token( form_data: Annotated[OAuth2PasswordRequestForm, Depends()], session: Session = Depends(get_session)):
