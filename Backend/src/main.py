@@ -11,8 +11,7 @@ Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
 origins = [
-    #"http://frontend:8000", # ambiente de desenvolvimento local
-    "http://54.207.3.49", # IP do servidor EC2
+    "http://localhost:5050", # ambiente de desenvolvimento local
 ]
 app.add_middleware(
     CORSMiddleware,
